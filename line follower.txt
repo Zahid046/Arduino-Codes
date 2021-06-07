@@ -1,0 +1,93 @@
+ void setup() {
+  analogWrite(5, 180);
+  analogWrite(6, 0);
+  analogWrite(10, 180);
+  analogWrite(11, 0);
+}
+
+void loop() {
+  if( analogRead(A0)<400 && analogRead(A5)>400 ){
+    analogWrite(5, 0);
+    analogWrite(6, 255);
+    analogWrite(10, 0);
+    analogWrite(11, 255);
+    delay(10);
+    analogWrite(5, 180);
+    analogWrite(6, 0);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+    while(1){
+      if( analogRead(A0)<400 && analogRead(A1)<400 && analogRead(A2)<400 && analogRead(A3)<400 && analogRead(A4)<400 && analogRead(A5)<400){
+        break;
+      }
+    }
+    analogWrite(5, 180);
+    analogWrite(6, 0);
+    analogWrite(10, 0);
+    analogWrite(11, 180);
+    while(1){
+      if( analogRead(A0)<400 && analogRead(A5)<400 && (analogRead(A2)>400 || analogRead(A3)>400 || analogRead(A4)>400 || analogRead(A1)>400) ){
+        break;
+      }
+    }
+  }
+  else if( analogRead(A0)>400 && analogRead(A5)<400 ){
+    analogWrite(5, 0);
+    analogWrite(6, 255);
+    analogWrite(10, 0);
+    analogWrite(11, 255);
+    delay(10);
+    analogWrite(5, 100);
+    analogWrite(6, 0);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+    while(1){
+      if( analogRead(A0)<400 && analogRead(A1)<400 && analogRead(A2)<400 && analogRead(A3)<400 && analogRead(A4)<400 && analogRead(A5)<400){
+        break;
+      }
+    }
+    analogWrite(5, 0);
+    analogWrite(6, 180);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+    while(1){
+      if( analogRead(A0)<400 && analogRead(A5)<400 && (analogRead(A2)>400 || analogRead(A3)>400 || analogRead(A4)>400 || analogRead(A1)>400) ){
+        break;
+      }
+    }
+  }
+  else if( analogRead(A4)>400 && analogRead(A1)<400 ){
+
+    analogWrite(5, 180);
+    analogWrite(6, 0);
+    analogWrite(10, 0);
+    analogWrite(11, 0);
+  }
+  else if( analogRead(A4)<400 && analogRead(A1)>400 ){
+    analogWrite(5, 0);
+    analogWrite(6, 0);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+  }
+  else if( analogRead(A2)<400 && analogRead(A3)>400 ){
+ 
+    analogWrite(5, 180);
+    analogWrite(6, 0);
+    analogWrite(10, 100);
+    analogWrite(11, 0);
+  }
+  else if( analogRead(A3)<400 && analogRead(A2)>400 ){
+
+    analogWrite(5, 100);
+    analogWrite(6, 0);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+  }
+  else {
+
+    analogWrite(5, 180);
+    analogWrite(6, 0);
+    analogWrite(10, 180);
+    analogWrite(11, 0);
+  }
+}
